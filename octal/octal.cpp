@@ -1,9 +1,9 @@
-#include "decimal.h"
+#include "octal.h"
 
 /**
  * constructor predeterminado
  */
-decimal::decimal(long valor) {
+octal::octal(long valor) {
     for(int i = 0; i <= 9; i++)
         dec[i] = 0;
 
@@ -14,19 +14,19 @@ decimal::decimal(long valor) {
 
     /* coloca los digitos del argumento dentro del arreglo */
     for(int j = 9; valor != 0 && j >= 0; j--) {
-        dec[j] = valor % 10;
-        valor /= 10;
+        dec[j] = valor % 8;
+        valor /= 8;
     }
 }
 
-decimal decimal::operator+(const decimal &op2) const
+octal octal::operator+(const octal &op2) const
 {
-    decimal temp;
+    octal temp;
     int acarreo = 0;
     for(int i = 9; i >= 0; i--){
         temp.dec[i] = dec[i] + op2.dec[i] + acarreo;
-        if(temp.dec[i] > 9){
-            temp.dec[i] %= 10; //reduce a 0-9
+        if(temp.dec[i] > 7){
+            temp.dec[i] %= 8; //reduce a 0-7
             acarreo = 1;
         }
         else
@@ -39,9 +39,9 @@ decimal decimal::operator+(const decimal &op2) const
  * operador de inversión para la resta.
  * calcula el complemento de 9.
  */
-void decimal::invertir() {
+void octal::invertir() {
   for (int i = 0; i < 10; i++) {
-    dec[i] = 9 - dec[i];
+    dec[i] = 7 - dec[i];
   }
 }
 
@@ -49,7 +49,7 @@ void decimal::invertir() {
  * calcula cuál número es mayor.
  * útil para la resta.
  */
-bool decimal::esMayor(const decimal& comp) const {
+bool octal::esMayor(const octal& comp) const {
   for (int i = 0; i < 10; i++) {
     if (dec[i] > comp.dec[i]) {
       return true;
@@ -63,15 +63,15 @@ bool decimal::esMayor(const decimal& comp) const {
 /**
  * calcula la sustracción usando una suma y el complemento de nueves.
  */
-decimal decimal::operator-(const decimal &op2) const {
-  decimal result;
-  decimal minuInver = *this;
+octal octal::operator-(const octal &op2) const {
+  octal result;
+  octal minuInver = *this;
   minuInver.invertir();
   result = minuInver + op2;
   if (this->esMayor(op2)) {
     result.invertir();
   } else {
-    result = result + decimal(1);
+    result = result + octal(1);
     result.signo = !result.signo;
   }
 
@@ -81,7 +81,7 @@ decimal decimal::operator-(const decimal &op2) const {
 /**
  *operador de salida sobrecargado
  */
-ostream& operator<<(ostream &salida, const decimal &num)
+ostream& operator<<(ostream &salida, const octal &num)
 {
     int i;
     for(i = 0; (num.dec[i] == 0) && (i <= 9); i++);

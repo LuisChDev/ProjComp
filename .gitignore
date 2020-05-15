@@ -30,9 +30,15 @@
 *.exe
 *.out
 *.app
+out
 
 # direnv
 .envrc
 
 # ccls
 .ccls-cache
+
+compile
+
+build
+

@@ -9,7 +9,7 @@ using namespace std;
  */
 
 int main() {
-  int input;
+  int input, input2, numero, numero2;
   cout << "Bienvenido al programa." << endl << endl;
 
   do {
@@ -23,6 +23,120 @@ int main() {
     cin >> input;
 
     switch (input) {
+
+    case 1:
+      cout << "operaciones decimales." << endl;
+      do {
+        cout << "1. Suma" << endl
+             << "2. Resta" << endl
+             << "3. Salir" << endl
+             << endl
+             << "Escoja opción: " << endl;
+        cin >> input2;
+
+        switch (input2) {
+
+        case 1:
+          cout << "Por favor ingrese el primer número: " << endl;
+          cin >> numero;
+          cout << "Por favor ingrese el segundo: " << endl;
+          cin >> numero2;
+
+          cout << "La suma da " << (decimal(numero) + decimal(numero2)) << endl;
+          break;
+
+        case 2:
+          cout << "Por favor ingrese el primer número: " << endl;
+          cin >> numero;
+          cout << "Por favor ingrese el segundo: " << endl;
+          cin >> numero2;
+
+          cout << "La resta da " << (decimal(numero) - decimal(numero2)) << endl;
+
+          break;
+
+        case 3:
+          break;
+
+        default:
+          cout << "opción inválida. Por favor ingrese de nuevo." << endl;
+          cin.clear();
+          cin.ignore();
+        }
+      } while (input2 != 3);
+
+    case 2:
+      cout << "operaciones octales." << endl;
+      do {
+        cout << "1. Suma" << endl
+             << "2. Resta" << endl
+             << "3. Salir" << endl
+             << endl
+             << "Escoja opción: " << endl;
+        cin >> input2;
+
+        switch (input2) {
+
+        case 1:
+          cout << "Por favor ingrese el primer número: " << endl;
+          cin >> numero;
+          cout << "Por favor ingrese el segundo: " << endl;
+          cin >> numero2;
+
+          cout << "La suma da " << (decimal(numero) + decimal(numero2)) << endl;
+          break;
+
+        case 2:
+          cout << "Por favor ingrese el primer número: " << endl;
+          cin >> numero;
+          cout << "Por favor ingrese el segundo: " << endl;
+          cin >> numero2;
+
+          cout << "La resta da " << (decimal(numero) - decimal(numero2)) << endl;
+
+          break;
+
+        case 3:
+          break;
+
+        default:
+          cout << "opción inválida. Por favor ingrese de nuevo." << endl;
+          cin.clear();
+          cin.ignore();
+        }
+      } while (input2 != 3);
+
+    case 3:
+      cout << "operaciones binarias." << endl;
+      do {
+        cout << "1. Suma" << endl << "2. Resta" << endl << "3. Salir" <<
+          endl << endl << "Escoja opción: " << endl;
+        cin >> input2;
+
+        switch (input2) {
+
+        case 1:
+          cout << "Por favor ingrese el primer número: " << endl;
+          cin >> numero;
+          cout << "Por favor ingrese el segundo: " << endl;
+          cin >> numero2;
+
+          cout << "La suma da " << (binario(numero) + binario(numero2)) << endl;
+          break;
+
+        case 2:
+          break;
+
+        case 3:
+          break;
+
+        default:
+          cout << "opción inválida. Por favor ingrese de nuevo." << endl;
+          cin.clear();
+          cin.ignore();
+        }
+      } while (input2 != 3);
+      break;
 
     case 4:
       break;
