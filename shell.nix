@@ -8,5 +8,6 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.ccls
     pkgs.gcc
+    pkgs.gdb
   ];
 }
