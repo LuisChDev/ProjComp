@@ -37,7 +37,7 @@ octal octal::operator+(const octal &op2) const
 
 /**
  * operador de inversión para la resta.
- * calcula el complemento de 9.
+ * calcula el complemento de 7.
  */
 void octal::invertir() {
   for (int i = 0; i < 10; i++) {

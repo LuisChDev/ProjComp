@@ -1,6 +1,7 @@
 #include <iostream>
 #include "./binario/binario.h"
 #include "./decimal/decimal.h"
+#include "./octal/octal.h"
 using namespace std;
 
 /*
@@ -64,6 +65,7 @@ int main() {
           cin.ignore();
         }
       } while (input2 != 3);
+      break;
 
     case 2:
       cout << "operaciones octales." << endl;
@@ -83,7 +85,7 @@ int main() {
           cout << "Por favor ingrese el segundo: " << endl;
           cin >> numero2;
 
-          cout << "La suma da " << (decimal(numero) + decimal(numero2)) << endl;
+          cout << "La suma da " << (octal(numero) + octal(numero2)) << endl;
           break;
 
         case 2:
@@ -92,7 +94,7 @@ int main() {
           cout << "Por favor ingrese el segundo: " << endl;
           cin >> numero2;
 
-          cout << "La resta da " << (decimal(numero) - decimal(numero2)) << endl;
+          cout << "La resta da " << (octal(numero) - octal(numero2)) << endl;
 
           break;
 
@@ -105,6 +107,7 @@ int main() {
           cin.ignore();
         }
       } while (input2 != 3);
+      break;
 
     case 3:
       cout << "operaciones binarias." << endl;
@@ -125,6 +128,12 @@ int main() {
           break;
 
         case 2:
+          cout << "Por favor ingrese el primer número: " << endl;
+          cin >> numero;
+          cout << "Por favor ingrese el segundo: " << endl;
+          cin >> numero2;
+
+          cout << "La resta da " << (binario(numero) - binario(numero2)) << endl;
           break;
 
         case 3:
